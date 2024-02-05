@@ -1,6 +1,6 @@
 import sys
 sys.path.append('crud')
-from crudoperations import add, show
+from crudoperations import add,show,edit
 
 
 
@@ -14,6 +14,8 @@ while True:
             add()
         case "show":
             show()
+        case "edit":
+            edit()
 # - add a new items to a list
     
     
