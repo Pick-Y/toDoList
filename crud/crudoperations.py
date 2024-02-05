@@ -1,8 +1,7 @@
 def add():
     todo = input("insert toDo item:") + "\n"
-    file = open(f"./file/" + "todos.txt", 'r')
-
-    todo_list = file.readlines()
+    with open(f"./file/" + "todos.txt", 'r') as file:
+        todo_list = file.readlines()
     
 
     #We append the new "todo" item to the "todo_list"
