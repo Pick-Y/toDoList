@@ -1,17 +1,19 @@
 import sys
 sys.path.append('crud')
-from crudoperations import add
+from crudoperations import add, show
 
 
 
 
 
 while True:
-    user_selection = input("Choose an option from the list:\n 1) add(to addan item)\n 2) show(to show todo_items in list)\n 4) edit (to edit item in the list)\n 5) complete (to remove an item from the list)\n6) end (to exit program)\n")
+    user_selection = input("Choose an option from the list:\n 1) add(to addan item)\n 2) show(to show todo_items in list)\n 4) edit (to edit item in the list)\n 5) complete (to remove an item from the list)\n 6) end (to exit program)\n")
 
     match user_selection.strip():
         case "add":
             add()
+        case "show":
+            show()
 # - add a new items to a list
     
     
