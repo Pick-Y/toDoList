@@ -1,6 +1,6 @@
 import sys
 sys.path.append('crud')
-from crudoperations import add,show,edit
+from crudoperations import add,show,edit, complete
 
 
 
@@ -16,9 +16,10 @@ while True:
             show()
         case "edit":
             edit()
+        case "complete":
+            complete()
+
 # - add a new items to a list
-    
-    
 # - show the content of a list
 # - edit the content of a list
 # - remove an item from the list when the task has been completed
