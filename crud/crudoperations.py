@@ -43,3 +43,18 @@ def edit():
     
     print("This is your updated list:")
     show()
+
+def complete():
+    show()
+    number = int(input("Which item do you want to remove?"))
+    number = number - 1
+
+    with open(f"./file/" + "todos.txt", 'r') as file:
+        list_of_itmes = file.readlines()
+    
+    number_removed = list_of_itmes.pop(number)
+
+    with open(f"./file/" + "todos.txt", 'w') as file:
+        file.writelines(list_of_itmes)
+
+    print("Removed " + str(number_removed))
