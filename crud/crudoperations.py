@@ -26,24 +26,29 @@ def show():
                 #Print the items present in the txt file
                 print(numbered_item)
 def edit():
-    with open(f"./file/" + "todos.txt", 'r') as file:
-               list_items = file.readlines()
+
+    try:
+        with open(f"./file/" + "todos.txt", 'r') as file:
+                list_items = file.readlines()
+                
         
-    print("This is your current list:")
-    show()
-    number = int(input("Which item do you want to change?"))
-    number = number - 1
+        print("This is your current list:")
+        show()
+        number = int(input("Which item do you want to change?"))
+        number = number - 1
 
-    new_todo = input("Insert new to do item:\n ")
-    list_items[number] = new_todo + "\n"
-    print(list_items)
+        new_todo = input("Insert new to do item:\n ")
+        list_items[number] = new_todo + "\n"
+        print(list_items)
 
-    with open(f"./file/" + "todos.txt", 'w') as file:
-        file.writelines(list_items)
-    
-    print("This is your updated list:")
-    show()
-
+        with open(f"./file/" + "todos.txt", 'w') as file:
+            file.writelines(list_items)
+        
+        print("This is your updated list:")
+        show()
+    except ValueError:
+         print("Invalid value. Value must be an integer")
+         
 def complete():
     show()
     number = int(input("Which item do you want to remove?"))
