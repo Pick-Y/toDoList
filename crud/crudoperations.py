@@ -1,11 +1,11 @@
-def add():
-    todo = input("insert toDo item:") + "\n"
+def add(option):
+    #todo = input("insert toDo item:") + "\n"
     with open(f"./file/" + "todos.txt", 'r') as file:
         todo_list = file.readlines()
     
 
     #We append the new "todo" item to the "todo_list"
-    todo_list.append(todo)
+    todo_list.append(option + "\n")
     #We close the file
     
     #We re-open the file in 'w' mode (writing mode)
