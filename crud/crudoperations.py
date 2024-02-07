@@ -1,21 +1,26 @@
 
 def read_file():
      
-     with open('todos.txt', 'r') as file:
+     with open(f"./file/" + "todos.txt", 'r') as file:
         list_of_item = file.readlines()
      
      return list_of_item
 
 def write_file(alist):
      
-      with open("todos.txt", 'w') as file:
+      with open(f"./file/" + "todos.txt", 'w') as file:
         #we write the "todo_list" line by line into the new file
         file.writelines(alist)
 
+def read_list_index(alist):
+     for index, i in enumerate(alist):
+        numbered_item = f"{index + 1}:){i}"
+        print(numbered_item)
+
 def add(option):
     #todo = input("insert toDo item:") + "\n"
-    with open(f"./file/" + "todos.txt", 'r') as file:
-        todo_list = file.readlines()
+    
+    todo_list = read_file()
     
 
     #We append the new "todo" item to the "todo_list"
@@ -23,27 +28,20 @@ def add(option):
     #We close the file
     
     #We re-open the file in 'w' mode (writing mode)
-    with open(f"./file/" + "todos.txt", 'w') as file:
-        #we write the "todo_list" line by line into the new file
-        file.writelines(todo_list)
+    write_file(todo_list)
 
 def show():
-    with open(f"./file/" + "todos.txt", 'r') as file:
-        list_of_item = file.readlines()
+  
+    list_of_item = read_file()
     
     new_item_list = [item.strip("\n") for item in list_of_item]
     
-    for index, i in enumerate(new_item_list):
-                #we want to enumerate list index starting from one and not 0
-                #for a better UX
-                numbered_item = f"{index + 1}:){i}"
-                #Print the items present in the txt file
-                print(numbered_item)
+    read_list_index(new_item_list)
 def edit():
 
     try:
-        with open(f"./file/" + "todos.txt", 'r') as file:
-                list_items = file.readlines()
+       
+        list_items = read_file()
                 
         
         print("This is your current list:")
@@ -55,8 +53,7 @@ def edit():
         list_items[number] = new_todo + "\n"
         print(list_items)
 
-        with open(f"./file/" + "todos.txt", 'w') as file:
-            file.writelines(list_items)
+        write_file(list_items)
         
         print("This is your updated list:")
         show()
@@ -70,13 +67,12 @@ def complete():
         number = int(input("Which item do you want to remove?"))
         number = number - 1
 
-        with open(f"./file/" + "todos.txt", 'r') as file:
-            list_of_itmes = file.readlines()
+        
+        list_of_itmes = read_file()
         
         number_removed = list_of_itmes.pop(number)
 
-        with open(f"./file/" + "todos.txt", 'w') as file:
-            file.writelines(list_of_itmes)
+        write_file(list_of_itmes)
 
         print("Removed " + str(number_removed))
     except IndexError:
