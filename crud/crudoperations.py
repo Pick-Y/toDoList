@@ -1,3 +1,11 @@
+
+def read_file():
+     
+     with open('todos.txt', 'r') as file:
+        list_of_item = file.readlines()
+     
+     return list_of_item
+
 def add(option):
     #todo = input("insert toDo item:") + "\n"
     with open(f"./file/" + "todos.txt", 'r') as file:
