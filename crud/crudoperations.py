@@ -6,6 +6,12 @@ def read_file():
      
      return list_of_item
 
+def write_file(alist):
+     
+      with open("todos.txt", 'w') as file:
+        #we write the "todo_list" line by line into the new file
+        file.writelines(alist)
+
 def add(option):
     #todo = input("insert toDo item:") + "\n"
     with open(f"./file/" + "todos.txt", 'r') as file:
