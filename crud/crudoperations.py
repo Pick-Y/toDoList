@@ -1,14 +1,14 @@
-
+FILEPATH = f"./file/" + "todos.txt"
 def read_file():
      
-     with open(f"./file/" + "todos.txt", 'r') as file:
+     with open(FILEPATH, 'r') as file:
         list_of_item = file.readlines()
      
      return list_of_item
 
 def write_file(alist):
      
-      with open(f"./file/" + "todos.txt", 'w') as file:
+      with open(FILEPATH, 'w') as file:
         #we write the "todo_list" line by line into the new file
         file.writelines(alist)
 
