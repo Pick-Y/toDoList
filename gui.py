@@ -46,3 +46,11 @@ class TodoListApp(QWidget):
         main_layout.addWidget(self.list_widget)
 
         self.setLayout(main_layout)
+    
+    #reads file from text file
+    def read_file(self):
+     
+     with open(self.path, 'r') as file:
+        list_of_item = file.readlines()
+     
+     return list_of_item
