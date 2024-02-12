@@ -71,3 +71,17 @@ class TodoListApp(QWidget):
 
             self.list_widget.addItem(text)
             self.input_field.clear()
+    
+    def show_all_items(self):
+
+        new_item_list = [item.strip("\n") for item in self.list_of_items]
+        for item in new_item_list:
+            self.list_widget.addItem(item)
+
+        count = self.list_widget.count()
+        if count == 0:
+           
+            QMessageBox.information(self, 'Todo List', 'No items in the list.')
+        else:
+            items = [self.list_widget.item(i).text() for i in range(count)]
+            #QMessageBox.information(self, 'Todo List', '\n'.join(items))
