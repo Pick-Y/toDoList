@@ -2,7 +2,24 @@ import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QListWidget, QLineEdit, QPushButton, QMessageBox,QLabel,QDialog
 
 
+class EditItemDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle('Edit Item')
+        self.initUI()
 
+    def initUI(self):
+        self.setLayout(QVBoxLayout())
+        self.input_field = QLineEdit()
+        self.save_button = QPushButton('Save')
+        self.layout().addWidget(QLabel('Enter new text:'))
+        self.layout().addWidget(self.input_field)
+        self.layout().addWidget(self.save_button)
+        self.save_button.clicked.connect(self.accept)
+
+    def get_new_text(self):
+        return self.input_field.text()
+    
 class TodoListApp(QWidget):
     def __init__(self):
         super().__init__()
@@ -85,3 +102,6 @@ class TodoListApp(QWidget):
         else:
             items = [self.list_widget.item(i).text() for i in range(count)]
             #QMessageBox.information(self, 'Todo List', '\n'.join(items))
+
+    
+    
