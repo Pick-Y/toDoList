@@ -104,4 +104,25 @@ class TodoListApp(QWidget):
             #QMessageBox.information(self, 'Todo List', '\n'.join(items))
 
     
-    
+    def edit_item(self):
+        current_item = self.list_widget.currentItem()
+
+        stripped_list = [item[:-1] for item in self.read_file()]
+        new_stripped_list = []
+        
+        if current_item:
+            
+            dialog = EditItemDialog(self)
+            dialog.input_field.setText(current_item.text())
+            
+            
+            if dialog.exec() == QDialog.DialogCode.Accepted:
+                for index, item in enumerate(stripped_list):
+                    if item == current_item.text():
+                        new_text = dialog.get_new_text()
+                        current_item.setText(new_text)
+                        stripped_list[index] = new_text
+                        for item in stripped_list:
+                            new_stripped_list.append(item + "\n")
+                        self.write_file(new_stripped_list)
+                
