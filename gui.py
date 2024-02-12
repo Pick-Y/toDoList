@@ -24,7 +24,7 @@ class TodoListApp(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
-        self.path = "todos.txt"
+        self.path = "file/todos.txt"
         self.list_of_items = self.read_file()
     
     def initUI(self):
