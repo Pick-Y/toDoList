@@ -54,3 +54,10 @@ class TodoListApp(QWidget):
         list_of_item = file.readlines()
      
      return list_of_item
+    
+    #write into the  text file
+    def write_file(self,alist):
+     
+      with open(self.path, 'w') as file:
+        #we write the "todo_list" line by line into the new file
+        file.writelines(alist)
