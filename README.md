@@ -17,3 +17,8 @@ To install the package:
 ```bash
 pip install pyqt6
 ```
+
+## Crud folder
+
+The "crud" folder has been kept as users my want to run the program without GUI.
+The folder contains the CRUD operations
