@@ -61,3 +61,13 @@ class TodoListApp(QWidget):
       with open(self.path, 'w') as file:
         #we write the "todo_list" line by line into the new file
         file.writelines(alist)
+    
+    def add_item(self):
+        text = self.input_field.text()
+
+        if text:
+            self.list_of_items.append(text + "\n")
+            self.write_file(self.list_of_items)
+
+            self.list_widget.addItem(text)
+            self.input_field.clear()
