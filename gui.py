@@ -125,4 +125,21 @@ class TodoListApp(QWidget):
                         for item in stripped_list:
                             new_stripped_list.append(item + "\n")
                         self.write_file(new_stripped_list)
-                
+    
+
+    def delete_item(self):
+        current_item = self.list_widget.currentItem()
+        
+
+        if current_item:
+            stripped_list = [item[:-1] for item in self.read_file()]
+            new_list = []
+            for index, item in enumerate(stripped_list):
+                    if item == current_item.text():
+                        stripped_list.pop(index)
+                        for item in stripped_list:
+                            new_list.append(item + "\n")
+                        self.write_file(new_list)
+
+
+            self.list_widget.takeItem(self.list_widget.row(current_item))
