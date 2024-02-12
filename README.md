@@ -2,7 +2,7 @@
 
 This is a simple desktop Todo list whit a UI that allows users to add,show, edit, delete items into a text file
 
-![alt text](https://github.com/Pick-Y/toDoList.git/blob/main/ui.png?raw=true)
+![UI Screenshot](https://github.com/Pick-Y/toDoList/blob/main/ui.png)
 
 ## Run
 
